@@ -4,7 +4,7 @@ import uniqid from "uniqid";
 import createHttpError from "http-errors";
 import { v2 as cloudinary } from "cloudinary";
 import { CloudinaryStorage } from "multer-storage-cloudinary";
-import { getMovies, writeMovie } from "../toolbox/fs-tools";
+import { getMovies, writeMovie } from "../toolbox/fs-tools.js";
 import { checkMovieSchema, checkValidationResult } from "./validator.js"
 
 const cloudinaryUploader = multer({
@@ -56,3 +56,5 @@ moviesRouter.post("/", checkMovieSchema, checkValidationResult, async (req,res,n
         next(error)
     }
 })
+
+export default moviesRouter;

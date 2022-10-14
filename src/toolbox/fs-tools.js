@@ -1,5 +1,7 @@
 import fs from "fs-extra";
 import sgMail from "@sendgrid/mail"
+import { join } from "path";
+
 sgMail.setApiKey(process.env.SENDGRID_KEY)
 const {readJSON, writeJSON} = fs;
 

@@ -2,6 +2,7 @@ import express from "express";
 import cors from "cors";
 import listEndpoints from "express-list-endpoints";
 import { join } from "path"
+import moviesRouter from "./api/index.js"
 const server = express();
 const port = process.env.PORT || 3002
 const publicFolderPath = join(process.cwd(), "./public");

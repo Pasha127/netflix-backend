@@ -1,7 +1,7 @@
 import { checkSchema, validationResult } from "express-validator"
 import createHttpError from "http-errors"
 
-const blogSchema = {  
+const movieSchema = {  
   title: {
     in: ["body"],
     isString: {
@@ -12,12 +12,6 @@ const blogSchema = {
     in: ["body"],
     isString: {
       errorMessage: "Year is a mandatory field and needs to be a string!",
-    },
-  },
-  imdbID: {
-    in: ["body"],
-    isString: {
-      errorMessage: "imdbID is a mandatory field and needs to be a string!",
     },
   },
   type: {
