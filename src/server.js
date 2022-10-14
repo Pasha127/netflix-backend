@@ -13,7 +13,7 @@ server.use(
 )
 
 server.use(express.json())
-server.use("/vid", vidRouter)
+server.use("/movies", moviesRouter)
 
 server.listen( port, ()=>{
     console.table(listEndpoints(server))
