@@ -4,7 +4,7 @@ import uniqid from "uniqid";
 import createHttpError from "http-errors";
 import { v2 as cloudinary } from "cloudinary";
 import { CloudinaryStorage } from "multer-storage-cloudinary";
-import { getMovies, writeMovie } from "../toolbox/fs-tools.js";
+import { getMovies, writeMovie, updateEntryPoster } from "../toolbox/fs-tools.js";
 import { checkMovieSchema, checkValidationResult } from "./validator.js"
 
 const cloudinaryUploader = multer({
@@ -16,6 +16,13 @@ const cloudinaryUploader = multer({
   }).single("image")
 
 const moviesRouter = express.Router();
+
+moviesRouter.post("/:movieId/poster",cloudinaryUploader, async (req,res,next)=>{try{     
+    console.log("Posted a poster", req.file.path);
+    await updateEntryPoster(req.params.movieId, req.file.path)
+   res.status(201).send({message: "Poster Uploaded"})
+}catch(error){ next(error) }}) 
+
 
 moviesRouter.get("/", async (req,res,next)=>{
     try{
