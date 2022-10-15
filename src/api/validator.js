@@ -14,7 +14,7 @@ const movieSchema = {
       errorMessage: "Year is a mandatory field and needs to be a string!",
     },
   },
-  type: {
+  medium: {
     in: ["body"],
     isString: {
       errorMessage: "Type is a mandatory field and needs to be a string!",
